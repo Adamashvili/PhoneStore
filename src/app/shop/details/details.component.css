@@ -1,0 +1,313 @@
+
+main {
+  max-width: 1400px;
+  margin: 80px auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.5px solid rgb(206, 199, 199);
+  padding-bottom: 20px;
+}
+
+header .right {
+  display: flex;
+  gap: 10px;
+  color: rgb(102, 101, 101);
+}
+
+.right h4 {
+  font-family: "Slabo 27px", serif;
+  letter-spacing: 1px;
+}
+
+.linkInfo {
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  align-items: center;
+  font-size: 12px;
+  color: #595d64;
+  cursor: default;
+}
+
+.linkInfo .address {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.address p {
+  cursor: pointer;
+}
+
+.full-description {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 650px;
+  gap: 40px;
+  
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.gallery {
+  display: grid;
+  display: flex;
+  align-items: center;
+
+  height: 400px;
+}
+
+.gallery .aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  overflow: scroll;
+  width: 80px;
+  height: 100%;
+  scrollbar-width: none;
+}
+
+.aside img {
+  width: 100%;
+  height: 80px;
+  object-fit: contain;
+  border: 0.1px solid #7f56d93b;
+  border-radius: 8px;
+  padding: 5px;
+  cursor: pointer;
+}
+.activeImg {
+  border: 1px solid #7f56d9 !important;
+}
+.gallery .mainImg {
+  width: calc(100% - 80px) !important;
+  height: 100%;
+  object-fit: contain;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  
+  gap: 5px;
+}
+
+.details h3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+}
+
+.details .info {
+  border: 1px solid #ece4f8;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.details .top {
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.property,
+.prodValue {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 13px;
+}
+
+.colorsCircles {
+  display: flex;
+  gap: 5px;
+  justify-content: end;
+}
+
+.colorDiv {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: 0 0 3px rgb(159, 158, 158);
+}
+
+.property p {
+  color: #666666;
+}
+
+.prodValue h4 {
+  color: #4d4d4d;
+  text-align: end;
+  font-weight: 500 !important;
+}
+.up {
+  border-bottom: 0.5px solid rgb(214, 212, 212);
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.up .quantity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+}
+
+.quantity button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.quantity button:disabled {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.quantity p {
+  font-size: 16px !important;
+}
+
+.bottom {
+  background-color: #f6f5fc;
+  padding: 15px 25px;
+  border-radius: 20px;
+  border-top: 1px solid #ece4f8;
+  position: relative;
+}
+
+.down {
+  display: flex;
+  gap: 10px;
+}
+
+.bottom h2,
+.bottom p span {
+  color: #7f56d9;
+  font-weight: 600;
+}
+.bottom p {
+  
+  color: #666666;
+  font-size: 11px;
+  margin: 5px 0;
+}
+
+.bottom h2 span {
+  color: #666666;
+  text-decoration: line-through;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+.down button, .rateCard button  {
+  width: 50%;
+  height: 50px;
+  border-radius: 25px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  text-shadow: 0 0 0.4px black;
+  transition: 0.3s;
+  margin-top: 15px;
+}
+
+.down button:disabled {
+  background-color: black !important;
+  cursor: default;
+}
+
+.down button:first-child {
+  background-color: #7f56d9;
+  color: white;
+}
+
+.down button:hover, .up .quantity button:hover, .rateCard button:hover  {
+  transform: scale(1.02);
+  box-shadow: 2px 2px 5px -1px #7f12cd;
+}
+
+
+
+.aboutProduct {
+  margin-top: 20px;
+  background-color: #F6F5FC;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.aboutProduct h4, .rateCard h4 {
+  border-bottom: 1px solid rgb(188, 185, 185);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.aboutProduct p {
+  font-size: 15px;
+  text-align: justify;
+}
+
+
+.rateCard {
+  height: 200px;
+  background-color: green;
+  border-radius: 20px;
+  background-color: #F6F5FC;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.showRateCard {
+  opacity: 1;
+  visibility: visible;
+}
+
+.rateCard h4 {
+  margin-bottom: 0;
+}
+
+
+
+
+.rateCard .stars {
+  
+  display: flex;
+  justify-content: center;
+  font-size: 35px;
+  gap: 30px;
+}
+
+.stars i {
+  color: #666666;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+@media (max-width: 850px) {
+  .full-description {
+    grid-template-columns: 1fr;
+    margin: 30px;
+  }
+}

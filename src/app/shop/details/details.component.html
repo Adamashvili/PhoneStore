@@ -1,0 +1,145 @@
+<main>
+  @if (prodINFO().title) {
+    <header>
+      <h5><i class="fa-solid fa-phone"></i> *3333 / (0322) 255-55-55</h5>
+      <div class="right">
+        <h4>Blog</h4>
+        <h4>Shops</h4>
+        <h4>Sales</h4>
+      </div>
+    </header>
+    <div class="linkInfo">
+      <div class="address">
+        <p routerLink="/">Main Page</p>
+        <i class="fa-solid fa-angle-right"></i>
+        <p routerLink="/shop">Computer Techics and Accessories</p>
+        <i class="fa-solid fa-angle-right"></i>
+        <p>{{ prodINFO().category?.name }}</p>
+      </div>
+      <p>code: {{ prodINFO()._id }}</p>
+    </div>
+    <section class="full-description">
+      <div class="left">
+        <div class="gallery">
+          <div class="aside">
+            @for (item of allImages; track $index) {
+              <img
+                [src]="item"
+                [class.activeImg]="item === mainImage"
+                (click)="zoomImg(item)"
+                alt="Image"
+                (error)="$any($event.target).src = '/nophoto.jpg'"
+              />
+            }
+          </div>
+          <img
+            [src]="mainImage"
+            (error)="mainImage = altImage"
+            class="mainImg"
+            alt=""
+          />
+        </div>
+        <div class="aboutProduct">
+          <h4>Product Description</h4>
+          <p>{{ prodINFO().description }}</p>
+        </div>
+      </div>
+
+      <div class="details">
+        <h3>{{ prodINFO().title }}  @if (tools.loader()) {
+      <app-spinner></app-spinner>
+    }</h3>
+        <div class="info">
+          <div class="top">
+            <div class="property">
+              <p>Available in Shops:</p>
+              <p>Brand:</p>
+              <p>chipset:</p>
+              <p>processor</p>
+              <p>ram</p>
+              <p>colors</p>
+            </div>
+            <div class="prodValue">
+              <h4 [style.color]="prodINFO().stock <= 0 ? 'red' : ''">
+                {{ prodINFO().stock }}
+              </h4>
+              <h4>{{ prodINFO().brand }}</h4>
+              <h4>{{ prodINFO().chipset}}</h4>
+              <h4>{{ prodINFO().processor }}</h4>
+              <h4>{{ prodINFO().ram }}</h4>
+              <div class="colorsCircles">
+                @for (item of prodINFO().colors; track $index) {
+                  <div [style.backgroundColor]="item" class="colorDiv"></div>
+                }
+              </div>
+            </div>
+          </div>
+          <div class="bottom">
+            <div class="up">
+              <div class="prices">
+                <h2>
+                  {{ prodINFO().price?.current | currency }}
+                  @if (prodINFO().price?.current < prodINFO().price.oldPrice) {
+                    <span>{{ prodINFO().price?.oldPrice | currency }}</span>
+                  }
+                </h2>
+                
+                @if (prodINFO().price.current < prodINFO().price.oldPrice) {
+                  <p>
+                    Purchase with
+                    <span> {{ prodINFO().price.discountPercentage }}% </span> Sale
+                  </p>
+                }
+              </div>
+              <div class="quantity">
+                <button
+                  [disabled]="prodQuant >= prodINFO().stock"
+                  (click)="updateQuantity('+')"
+                >
+                  +
+                </button>
+                <p>{{ prodQuant }}</p>
+                <button
+                  [disabled]="prodQuant == 1"
+                  (click)="updateQuantity('-')"
+                >
+                  -
+                </button>
+              </div>
+            </div>
+            <div class="down">
+              <button
+                (click)="cartBTN(prodINFO()._id)"
+                [disabled]="prodINFO().stock <= 0"
+              >
+                <i class="fa-solid fa-cart-shopping"></i> Add To Cart
+              </button>
+              <button (click)="isRateCardShown = true">Rate Product</button>
+            </div>
+          </div>
+        </div>
+        <div class="rateCard {{ isRateCardShown ? 'showRateCard' : '' }}">
+          <h4>How do you like this Product?</h4>
+          <div class="stars">
+            @for (item of [].constructor(5); track $index) {
+              <i
+                #rateStar
+                (click)="rateNum = $index + 1"
+                (mouseenter)="chooseRate($index + 1)"
+                (mouseleave)="resetStars()"
+                [id]="$index + 1"
+                class="fa-solid fa-star"
+              ></i>
+            }
+          </div>
+          <div class="down">
+            <button (click)="enterRate()"><i class="fa-regular fa-star"></i> Rate</button>
+            <button (click)="isRateCardShown = false">Close</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  }
+</main>
+
+<app-sign-err></app-sign-err>

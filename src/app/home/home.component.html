@@ -1,0 +1,41 @@
+<app-banner></app-banner>
+<main>
+<section class="categories">
+  <div class="categoryCard">
+    <h2>Laptops</h2>
+    <div class="photo">
+      <img src="https://i.imgur.com/LNqbBdo.jpg" alt="" />
+    </div>
+  </div>
+  <div class="categoryCard">
+    <h2>Smartphones</h2>
+    <div class="photo">
+      <img src="https://i.imgur.com/jqoLcKx.jpg" alt="" />
+    </div>
+  </div>
+</section>
+
+<div class="bestS">
+  <h1>Brands</h1>
+</div>
+
+<div class="brands">
+  @for (item of allBrands(); track $index) {
+    <div class="brandCard">
+      <h5> {{item}} </h5>
+     <img src="/laptoplogo.png" alt="">
+    </div>
+  }
+</div>
+
+
+<div class="bestS selling">
+  <h1>Best Selling</h1>
+  <h1 routerLink="/shop">See All Products</h1>
+</div>
+
+<app-several-products></app-several-products>
+
+
+
+</main>

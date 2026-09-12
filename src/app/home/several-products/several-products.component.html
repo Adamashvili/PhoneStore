@@ -1,0 +1,33 @@
+<section class="container">
+  <button [disabled]="currentPage == 1" (click)="changeProductPage('-')">
+    <i class="fa-solid fa-angle-left"></i>
+  </button>
+  <main>
+    @if (productList()) {
+      @for (item of productList(); track $index) {
+        <div class="card">
+          <h6 [style.display]="item.stock > 0 ? 'none' : 'unset'">
+            {{ item.stock <= 0 ? "Out of Stock" : "" }}
+          </h6>
+          <img
+            [src]="item.images[0]"
+            (error)="item.images[0] = '/nophoto.jpg'"
+            alt="product"
+          />
+          <h4>{{ item.title }}</h4>
+          <h2>
+            {{ item.price.current | currency }}
+            @if(item.price.current < item.price.oldPrice) {<span>{{ item.price.oldPrice | currency }}</span>}
+          </h2>
+          <div class="bottomArea">
+            <i class="fa-regular fa-star"></i>
+            <button routerLink="/details/{{ item._id }}">View Product</button>
+          </div>
+        </div>
+      }
+    }
+  </main>
+  <button [disabled]="currentPage == 8" (click)="changeProductPage('+')">
+    <i class="fa-solid fa-angle-right"></i>
+  </button>
+</section>

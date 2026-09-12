@@ -1,0 +1,137 @@
+.container {
+    max-width: 1400px;
+    min-height: 550px;
+    margin: 80px auto;
+    box-shadow: 0 0 5px rgb(214, 214, 214);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    overflow: hidden;
+}
+
+.infos {
+    height: 550px;
+    background-color: #F9F7FE;
+    padding: 60px;
+    padding-right: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    align-items: start;
+    position: relative;
+}
+
+.infos h2 {
+    position: absolute;
+    top: 30px;
+    left: 10px;
+    background-color: #672C90;
+    color: #F9F7FE;
+    padding: 5px 20px;
+    border-radius: 5px;
+    transform: rotate(-20deg);
+    font-family: "Slabo 27px", serif;
+    letter-spacing: 1px;
+}
+
+
+.infos h1 {
+    font-size: 45px;
+    font-family: "Google Sans Flex", sans-serif;
+    font-weight: 500;
+    text-shadow: 0 0 1.5px black;
+}
+
+.infos h4 {
+    color: #672C90;
+    text-shadow: 0 0 1px black;
+}
+
+.infos button {
+    padding: 10px 30px;
+    border: none;
+    background-color: #735EA8;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    bottom: 40px;
+}
+
+.infos button i {
+    transition: 0.4s;
+    
+}
+
+.infos button:hover {
+    background-color: #672C90;
+}
+.infos button:hover i {
+   transform: translateX(8px) scale(1.2, 1);
+}
+
+
+.photo {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 550px;
+}
+
+.photo img {
+    position: relative;
+    z-index: 1;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+.photo::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    transform: skew(-10deg) scale(1.2);
+}
+
+
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns:  1fr;
+        margin: 70px 20px;
+    }
+
+    .container .infos {
+        padding: 5px;
+        height: 400px;
+    }
+
+    .photo::after {
+        display: none;
+    }
+}
+@media (max-width: 600px) {
+    .container {
+        grid-template-columns:  1fr;
+        margin: 70px 20px;
+    }
+
+    .container .infos h1 {
+        font-size: 20px;
+    }
+
+    .container .infos {
+        padding: 5px;
+        height: 400px;
+        font-size: 10px;
+    }
+
+    
+}

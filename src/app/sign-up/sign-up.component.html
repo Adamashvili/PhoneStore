@@ -1,0 +1,69 @@
+<div class="signArea" (click)="everyWhere($event)">
+  <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+    @if (successRegister) {
+      <small class="success"
+        ><i class="fa-solid fa-address-book"></i>Signed in Successfully</small
+      >
+    } @else if (errorList) {
+      <ul class="errors">
+        @for (item of errorList; track $index) {
+          <li><i class="fa-solid fa-circle-info"></i> {{ item }}</li>
+        }
+      </ul>
+    }
+    <i (click)="closeForm()" class="fa-solid fa-x"></i>
+    <h1>Registration</h1>
+    <div class="content">
+      <div class="area">
+        <i class="fa-solid fa-user-tie"></i>
+        <label for="">First Name</label>
+        <input type="text" formControlName="firstName" />
+      </div>
+      <div class="area">
+        <i class="fa-solid fa-id-badge"></i>
+        <label for="">Last Name</label>
+        <input type="text" formControlName="lastName" />
+      </div>
+      <div class="area">
+        <i class="fa-solid fa-key"></i>
+        <label for="">Password</label>
+        <input type="password" formControlName="password" />
+      </div>
+      <div class="area">
+        <i class="fa-solid fa-key"></i>
+        <label for="">Confirm Password</label>
+        <input type="password" formControlName="confirmPassword" />
+      </div>
+      <div class="area">
+        <i class="fa-solid fa-envelope"></i>
+        <label for="">Email</label>
+        <input type="email" formControlName="email" />
+      </div>
+
+      <div class="area">
+        <i class="fa-solid fa-image"></i>
+        <label for="">Image</label>
+        <input type="text" formControlName="image" placeholder="https://" />
+      </div>
+
+      <div class="area">
+        <i class="fa-solid fa-image-portrait"></i>
+        <label for="">Age</label>
+        <input type="text" formControlName="age" />
+      </div>
+      <div class="area">
+        <i class="fa-solid fa-users"></i>
+        <label for="">Gender</label>
+        <select formControlName="gender" id="">
+          <option value=""></option>
+          <option value="MALE">Male</option>
+          <option value="FEMALE">Female</option>
+          <option value="OTHER">Other</option>
+        </select>
+      </div>
+    </div>
+    <div class="bottomContent">
+      <button [disabled]="signUpForm.invalid" type="submit">Register</button>
+    </div>
+  </form>
+</div>

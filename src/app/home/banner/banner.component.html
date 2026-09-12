@@ -1,0 +1,16 @@
+<section>
+ @if (randomProduct()) {
+   <main class="container">
+    <div class="infos">
+      <h2>Best Offer</h2>
+      <h1> {{randomProduct()?.title}} </h1>
+      <h4>For only  {{randomProduct().price?.current | currency}} </h4>
+      <p> {{randomProduct()?.description}} </p>
+      <button routerLink="/details/{{randomProduct()._id}}" >View Product <i class="fa-solid fa-arrow-right"></i>  </button>
+    </div>
+    <div class="photo">
+      <img [src]="randomProduct()?.images[0]" (error)="randomProduct().images[0] = '/nophoto.jpg' " alt="" />
+    </div>
+  </main>
+ }
+</section>
